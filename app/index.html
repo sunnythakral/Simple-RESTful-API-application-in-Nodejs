@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="messageApp" ng-controller="mainController">
+
+	<head>
+		<title>Messages RESTful API App</title>
+		
+		<!-- BOOTSTRAP -->
+		<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
+		<link rel="stylesheet" type="text/css" href="http://bootswatch.com/slate/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/custom.css">
+		<!-- JS files -->
+		<script type="text/javascript" src="js/angular.min.js"></script>
+		<script type="text/javascript" src="js/app.js"></script>
+	
+	</head>
+	
+	<body>
+
+		<h1 class="mainTitle">Messages RESTful API App</h1>
+
+		<form class="well" ng-submit="submit()">
+
+			<label>Method: </label>
+			<select class="form-control" ng-change="showMethod()" ng-model="method" ng-options="method.method as method.name for method in methods" ng-change="showOnlyMethod()"></select>
+
+			<div class="get-method {{showGet}}">
+				<label>ID: </label>
+				<input type="text/plain" ng-model="getID" class="form-control" placeholder="Leave empty to get all messages from DB">    <!--if blank get all-->
+			</div>
+
+			<div class="post-method {{showPost}}">
+				<label>Message Post: </label>
+				<input type="text/plain" ng-model="postContent" class="form-control" ng-model="content" placeholder="Message content">
+			</div>
+
+			<div class="put-method {{showPut}}">
+				<label>ID: </label>
+				<input type="text/plain" ng-model="putID" class="form-control" placeholder="Message ID">
+				<label>Message Post: </label>
+				<input type="text/plain" ng-model="putContent" class="form-control" ng-model="content" placeholder="Message content">
+			</div>
+			
+			<div class="delete-method {{showDelete}}">
+				<label>ID: </label>
+				<input type="text/plain" ng-model="deleteID" class="form-control" placeholder="Message ID">
+			</div>
+
+			<br>
+			<input type="submit" value="Submit" class="btn btn-info form-control">
+
+		</form>
+		<p>ng-show list</p>
+		get <input type="text/plain" ng-model="showGet">
+		post <input type="text/plain" ng-model="showPost">
+		put <input type="text/plain" ng-model="showPut">
+		delete <input type="text/plain" ng-model="showDelete">
+
+		<hr/>
+		
+		<!-- PRINTING RESULTS ON SCREEN -->
+		<br>
+		<div class="well post-info results">
+			<h2>Message List: </h2>
+			<hr/>
+			<h4 class="alert alert-{{type}}">{{response}}</h4>
+			<hr/>
+			<div ng-repeat="oneElement in data">
+				<p>id: '{{oneElement._id}}'</p>
+				<p>content: '{{oneElement.content}}'</p>
+				<p>Palindrome: '{{oneElement.Palindrome}}'</p>
+		
+				<hr/>
+			</div>
+		</div>
+
+	</body>
+
+</html>
