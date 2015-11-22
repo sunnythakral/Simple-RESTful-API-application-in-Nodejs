@@ -6,7 +6,7 @@
 var express    = require('express');        // calling express
 var app        = express();                 // defining the application using express
 var bodyParser = require('body-parser');	//importing the body parser
-var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
+
 
 var mongoose   = require('mongoose');     //Using mongoose framework 
 
