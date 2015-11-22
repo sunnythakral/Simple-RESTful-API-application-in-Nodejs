@@ -62,10 +62,10 @@ app.controller('mainController', ['$scope', '$http', function ($scope, $http) { 
 			//IF GET
 			if ($scope.method === 'get') {
 				//GET all or GET one -> info pushed into $scope.data
-				if ($scope.getID === undefined) {	//get all
+				if ($scope.getID === undefined || $scope.getID == '') {	//get all
 					$http.get('http://localhost:8080/api/messages').then(
 						function (data) {
-							//console.log(data);
+							//console.log("GET ALL: "+ data);
 							statusResponse = 1;	
 							$scope.data = data.data;
 							console.log('Returned data was:');
@@ -77,7 +77,7 @@ app.controller('mainController', ['$scope', '$http', function ($scope, $http) { 
 				} else {	//get one (with specified ID)
 					$http.get('http://localhost:8080/api/messages/' + $scope.getID).then(
 						function (data) {
-							//console.log(data);
+							//console.log("GET ID: "+ $scope.getID + data);
 							statusResponse = 1;	
 							$scope.data = []; //defining as empty aray and pushing individual object to avoid ng-repeat break
 							$scope.data.push(data.data);
