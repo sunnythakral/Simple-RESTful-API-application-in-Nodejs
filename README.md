@@ -2,7 +2,8 @@
 
 This API does the following:
 
-- Handles CRUD for a message item
+- Uses mean stack architecture (Refer to Application architecture diagram.png to get architecture overview)
+- Handles CRUD for a message item (Refer to mean-stack-architecture-sequence-diagram.png to understand sequence of flow of events for this type of mean stack application)
 - Uses HTTP to make it RESTful (GET, POST, PUT, and DELETE)
 - Returns JSON data (as we are using Nodejs)
 
