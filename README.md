@@ -15,7 +15,6 @@ This API in turn is used by a client GUI running an AngularJS UI or by any other
 Nodejs serverAPI:
 -
 - app/						//location of MongoDB model (built through MongooseJS)
-//files for the client app (can be deployed separately instead of being hosted by the server)
 - --- models/
 - -------- message.js  // our message model
 - node_modules/     // created by npm. holds our dependencies/packages
